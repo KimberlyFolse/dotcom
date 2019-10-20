@@ -14,6 +14,8 @@ function createInputRow(_arr, rowId){
   for(let i=0; i < _arr.length; i++){
     const squareId = rowId.toString() + "-" + i.toString();
     let square = createInputSquare(squareId, _arr[i]);
+    tr.className = "input-row";
+
     tr.appendChild(square);
   }
   return tr;

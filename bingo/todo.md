@@ -3,7 +3,7 @@
 #Overview  
 Two 5x5 grids
 The top grid is for input
-The bottom gird displays the input in a bingo format
+The bottom grid displays the input in a bingo format
 input string is saved in cookies (card schema)
 bingo card input states saved in cookies (selected schema)
 
