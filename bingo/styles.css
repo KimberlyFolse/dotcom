@@ -13,12 +13,17 @@ button {
   border-radius: 10px;
 }
 
-.bingo-cell {
-  background-color: #ffe;
+.bingo-square {
   border: 2px solid #6d6c6c;
   width: 100px;
   height: 100px;
   padding: 5px;
+}
+.unselected {
+  background-color: #ffe;
+}
+.selected {
+  background-color: #ff9800;
 }
 
 .input-cell {

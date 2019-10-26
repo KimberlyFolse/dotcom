@@ -12,8 +12,8 @@ function createInputCard(_cardData){
 function createInputRow(_arr, rowId){
   let tr = document.createElement('tr');
   for(let i=0; i < _arr.length; i++){
-    const squareId = rowId.toString() + "-" + i.toString();
-    let square = createInputSquare(squareId, _arr[i]);
+    const cellId = rowId.toString() + "-" + i.toString();
+    let square = createInputCell(cellId, _arr[i]);
     tr.className = "input-row";
 
     tr.appendChild(square);
@@ -21,9 +21,9 @@ function createInputRow(_arr, rowId){
   return tr;
 }
 
-function createInputSquare(squareId, text) {
+function createInputCell(cellId, text) {
   const td = document.createElement('td');
-  const input = createInput(squareId, text);
+  const input = createInput(cellId, text);
   td.className = "input-cell";
   td.appendChild(input);
 
@@ -31,10 +31,9 @@ function createInputSquare(squareId, text) {
 }
 
 
-function createInput(squareId, text) {
+function createInput(cellId, text) {
   const input = document.createElement("textarea");
-  // input.type= 'text';
-  input.id = squareId;
+  input.id = "input" + cellId;
   input.value = text || '';
 
   input.setAttribute('maxlength', '60');

@@ -50,4 +50,5 @@ input:
 
 BONUS
 reset button to set everything back to null
+hide input squares on 'save' & 'new card' button makes it reappear
 randomize button to randomize order of squares
