@@ -1,6 +1,9 @@
-//function that iterates through rows and creates a card
+/*
+FUNCTIONS USED FROM OTHER FILES:
+  import {} from "./helpers.js"
+*/
 
-function createCard(_cardData){
+function createCard(_cardData){//exported to main.js
   let card = document.createElement('table');
    for(let i = 0; i < _cardData.length; i++){
      let row = createRow(_cardData[i], i);
@@ -12,22 +15,29 @@ function createCard(_cardData){
 // function that iterates thru our squares and creates rows of squares
 function createRow (_arr, rowId) {
   let tr = document.createElement('tr');
-  for (let i = 0; i < _arr.length; i++) {
-    const squareId = rowId.toString() + "-" + i.toString();
-    const square = createSquare(squareId, _arr[i]);
+  for (let columnId = 0; columnId < _arr.length; columnId++) {
+    const square = createSquare(rowId, columnId, _arr[columnId]);
     tr.appendChild(square);
   }
   return tr;
 }
 
-// function that creates a square
-function createSquare(squareId, text) {
+/* function that creates a square
+applies input text
+creates and assigns an i.d.
+applies style from i.d.
+adds event listener on click
+*/
+function createSquare(rowId, columnId, text) {
   if (!text) text = '';
   const td = document.createElement('td');
   const textContent = document.createTextNode(text);
-  td.className = "bingo-square unselected";
+
+  applySquareStyle(td, currentSelectionData[rowId][columnId])
+
   td.appendChild(textContent);
   td.addEventListener('click', handleSquareClick);
+  const squareId = rowId.toString() + "-" + columnId.toString();
   td.id = "square" + squareId;
 
   return td;
@@ -44,11 +54,7 @@ function toggleSquare(data, td){
   const columnId = parseInt(td.id.slice(-1));
   data[rowId][columnId] = !data[rowId][columnId];
 
-  if(data[rowId][columnId]){
-    td.className = "bingo-square selected";
-  }else {
-    td.className = "bingo-square unselected";
-  }
+  applySquareStyle(td, data[rowId][columnId])
 }
 
 function checkBingoWin(data){
