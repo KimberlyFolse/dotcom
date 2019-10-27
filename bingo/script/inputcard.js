@@ -1,6 +1,4 @@
-//  ['user text example 1', 'user text example 2', 'user text example 3', null, null]
-
-function createInputCard(_cardData){
+function createInputCard(_cardData){//exported to main.js
   let table = document.createElement('table');
   for (let i=0; i < _cardData.length; i++){
     const row = createInputRow(_cardData[i], i)

@@ -1,12 +1,8 @@
 /*
-Toggle squares on click. We have our boolean data.
-✓ add i.d.'s to the card DOM elements (td's)
-✓ use the function 'handleSquareClick' to get the i.d.'s
-✓ with the i.d.'s we can toggle the data
-✓ based on data we will know what style to apply
-• use the data to determine if there is a BINGO!
+FUNCTIONS USED FROM OTHER FILES:
+  import {createCard} from "./textcard.js"
+  import {createInputCard} from "./inputcard.js"
 */
-
 
 const initialCardData = [
     ['user text example 1', 'user text example 2', 'user text example 3', null, null],
@@ -26,7 +22,7 @@ let currentSelectionData = [
 
 function bingoInit() {
     setTimeout(function() {
-        if (typeof textCardLoaded == 'undefined' || typeof inputCardLoaded == 'undefined') {
+        if (typeof textCardLoaded == 'undefined' || typeof inputCardLoaded == 'undefined' || typeof helpersLoaded == 'undefined') {
             bingoInit()
         } else {
             setUp()
