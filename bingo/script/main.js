@@ -2,8 +2,8 @@
 Toggle squares on click. We have our boolean data.
 ✓ add i.d.'s to the card DOM elements (td's)
 ✓ use the function 'handleSquareClick' to get the i.d.'s
-• with the i.d.'s we can toggle the data
-• based on data we will know what style to apply
+✓ with the i.d.'s we can toggle the data
+✓ based on data we will know what style to apply
 • use the data to determine if there is a BINGO!
 */
 

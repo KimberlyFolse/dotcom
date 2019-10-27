@@ -35,21 +35,88 @@ function createSquare(squareId, text) {
 
 function handleSquareClick(event) {
   const td = event.target
-
-  let rowId = parseInt(td.id.slice(-3,-2));
-  let columnId = parseInt(td.id.slice(-1));
-  toggleSquare(rowId, columnId, currentSelectionData, td);
+  toggleSquare(currentSelectionData, td);
+  const win = checkBingoWin(currentSelectionData);
 }
 
-function toggleSquare(rowId, columnId, data, td){
-  let selected = !data[rowId][columnId];
-  data[rowId][columnId] = selected;
+function toggleSquare(data, td){
+  const rowId = parseInt(td.id.slice(-3,-2));
+  const columnId = parseInt(td.id.slice(-1));
+  data[rowId][columnId] = !data[rowId][columnId];
 
-  if(selected){
+  if(data[rowId][columnId]){
     td.className = "bingo-square selected";
   }else {
     td.className = "bingo-square unselected";
   }
 }
+
+function checkBingoWin(data){
+  let trueArray = [];
+  let rowMatchData = {
+    horizontal:{
+      0: 0,
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+    },
+    vertical:{
+      0: 0,
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+    }
+  }
+
+  for (let rowId = 0; rowId < data.length; rowId++){
+    for (let columnId=0; columnId < data[rowId].length; columnId++){
+      if (data[rowId][columnId]){
+        trueArray.push([rowId, columnId]);
+        // console.log(rowId,columnId)
+      }
+    }
+  }
+  console.log("truearray", trueArray)
+
+  for(let i = 0; i < trueArray.length; i++){
+    const row = trueArray[i][0]
+    const column = trueArray[i][1]
+
+    rowMatchData.horizontal[row] ++
+    rowMatchData.vertical[column] ++
+
+  }
+
+  // Object.keys(rowMatchData).forEach()
+
+  console.log('rowMatchData', rowMatchData)
+}
+/* determine bingo win:
+  1. get i.d.'s of squares that are true
+  2. if >= 5, continue, else return false
+  3. continue... get i.d.'s and determine pattern
+
+  wins = {
+    horizontal:{
+      0: 1,
+      1: 1,
+      2: 2,
+      3: 1,
+      4: 1,
+    },
+    vertical:{
+      0: 0,
+      1: 0,
+      2: 1,
+      3: 5,
+      4: 0,
+    }
+  }
+
+*/
+
+
 
 const textCardLoaded = true;
