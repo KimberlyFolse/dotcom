@@ -81,5 +81,3 @@ function createTable(data, containerId, tableFunction) {
 }
 
 // @TODO function that sets cookies
-
-// TODO function that changes the color of a square (inside card) possibly separate file
