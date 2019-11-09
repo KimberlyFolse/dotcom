@@ -47,7 +47,8 @@ function handleSquareClick(event) {
     const td = event.target
     const newSelectionData = toggleSquare(currentSelectionData, td);
     const win = checkBingoWin(newSelectionData);
-    if (win){
+    if (win && !gameComplete){
+        gameComplete = true;
         window.alert("BINGO!!!BONGO!!!");
     }
 }
@@ -79,16 +80,27 @@ function checkBingoWin(data){
           4: 0,
         }
     }
+    let diagonalCounter = 0
     for(let i = 0; i < highlightedIndexArray.length; i++){
         const row = highlightedIndexArray[i][0]
         const column = highlightedIndexArray[i][1]
-
+        // console.log("row", row);
+        // console.log("column", column);
         rowMatchData.horizontal[row] ++
         rowMatchData.vertical[column] ++
 
         if (rowMatchData.horizontal[row] === 5 || rowMatchData.vertical[column] === 5){
             return true;
         }
+        console.log("highlighted index array", highlightedIndexArray)
+        if (row === column) {
+            diagonalCounter ++
+
+        }
     }
+    if(diagonalCounter === 5){
+        return true;
+    }
+    gameComplete = false;
 }
 const textCardLoaded = true;

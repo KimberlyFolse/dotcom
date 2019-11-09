@@ -3,6 +3,7 @@ FUNCTIONS USED FROM OTHER FILES:
   import {createCard} from "./textcard.js"
   import {createInputCard} from "./inputcard.js"
 */
+let gameComplete = false;
 
 const initialCardData = [
     ['user text example 1', 'user text example 2', 'user text example 3', null, null],

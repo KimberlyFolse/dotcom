@@ -16,7 +16,6 @@ const helpers = {
             }
         }
     }
-
     return highlightedIndexArray;
     }
 }
