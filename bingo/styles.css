@@ -14,7 +14,7 @@ button {
 }
 
 .bingo-square {
-  border: 2px solid #6d6c6c;
+  border: 2px dotted;
   width: 100px;
   height: 100px;
   padding: 5px;
@@ -23,11 +23,17 @@ button {
   background-color: #ffe;
 }
 .selected {
-  background-color: #ff9800;
+border-style: dotted;
+border-color:#red;
+border-radius: 10px;
+background: radial-gradient(circle, rgba(255,255,238,0.7344632768361582) 58%, rgba(245,205,105,0.8192090395480226) 100%);
+
+  /* background-color: #ff9800; */
 }
 
 .input-cell {
-  border: none;
+  border-style:dotted;
+  border-color: rgb(249,167,2);
 }
 
 #main{
@@ -35,7 +41,8 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 }
 #bingoCardContainer{
-  margin-top: 20px;
+  margin-top: 10px;
 }
